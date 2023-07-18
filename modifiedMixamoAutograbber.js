@@ -1,3 +1,4 @@
+// MODIFICATION: New total unique animation list of 1458 items from Mixamo
 const total_unique_animation_list = ["Jumping Up", "Jazz Dancing", "Hanging", "Scary Clown Idle", "Jump Up", "Left Cover Sneak W/ Rifle", "Samba Dancing", "Sprint Forward Right", "Standing Torch To Crouch Torch", "Arms Hip Hop Dance",
 "Victory", "Standing Torch Turn Right 90", "Prone Left Turn", "Golf Drive", "Standing Dodge Forward", "Cartwheel", "Goalkeeper Idle", "Jump Over", "Run Forward Right", "Bboy Pose To Idle",
 "Running Crawl", "Standing Cover Turn", "Crouch Strafe Run Left", "Catwalk Idle 02", "Gunplay", "Stop Walking With Rifle", "Sitting Disbelief", "Meia Lua De Compasso Back", "Opening Door Inwards", "Entry",
@@ -144,7 +145,7 @@ const total_unique_animation_list = ["Jumping Up", "Jazz Dancing", "Hanging", "S
 "Elbow Punching", "Emerge From Cover", "Golf Chip", "Breakdance Freeze Var 4", "Walk Crouching Forward Right", "Golf Putt", "Fishing Idle", "Climbing Up Wall", "Standing Idle To Fight Idle", "Wall Run",
 "Sword And Shield Slash", "Rockin' Shackle A", "Scary Clown Walk", "Crouch Turn Right 90", "Harvesting", "Moving Backward In Prone Position", "Basic Shooter Pack", "Walk Crouching Backward Left", "Rope Climb", "Banging Fist",
 "Falling Down", "Stepping Left", "Catwalk Walk Start Turn 180 Right", "Clean And Jerk", "Sprinting Forward Roll", "Standing 2H Cast Spell 01", "Rifle Crouch Backward Walk", "Martelo 3"
-]
+];
 
 const animation_list = ["Breakdance Uprock",
                         "Brief Stumble While Jogging",
@@ -175,12 +176,54 @@ const animation_list = ["Breakdance Uprock",
                         // "Female Jazz Dancing 'Around The World'- Loop",
                         // "Standing To Sitting Transition",
                         // "Cheering While Sitting With High Enthusiasm"
-                    ]
-
+                    ];
 
 //=================================================================================================
 
-const bearer = localStorage.access_token
+// MODIFICATION: NEW FUNCTIONS =======================================================================================================================
+
+const shuffledAnimations = shuffleArray(animation_list);
+
+function shuffleArray(array) {
+    // I looked up and used the Fisher-Yaktes Shuffle. Credit to Fisher-Yaktes!!!
+    // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+    let currentIndex = array.length,  randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+
+// Redistributing Animations to Files/3d Models
+function getAnimationsForCharacter(idx, totalCharacters) {
+    const animationsPerCharacter = Math.floor(shuffledAnimations.length / totalCharacters);
+    const start = idx * animationsPerCharacter;
+    let end = start + animationsPerCharacter;
+
+    // If last charactr, include remaining animations
+    if (idx == totalCharacters - 1) {
+        end = shuffledAnimations.length;
+    }
+
+    // Return a slice of shuffled animations for this character
+    return shuffledAnimations.slice(start, end)
+}
+
+
+
+//======================================================================================================================================================
+
+const bearer = localStorage.access_token;
 
 // finding an animation by name
 const getAnimationByName = (name) => {
@@ -435,7 +478,9 @@ const startUpload = (idx) => {
         return monitorAnimation(json.uuid)
     })
     .then(uuid => {
-        return startDownload(uuid,filename)
+        // MODIFICATION: Get unique animations for this character
+        const characterAnimations = getAnimationsForCharacter(idx - skip, files.length);
+        return startDownload(uuid,filename, characterAnimations);
     })
     .catch(() => Promise.reject("Unable to upload character number" + pad(idx)))
 }
@@ -447,11 +492,12 @@ const startDownload = (uuid,filename) => {
         console.error("No valid character ID");
         return
     }
-    if (!animation_list.length) {
+    if (!characterAnimations.length) {
         console.error("Please add valid animation IDs at the beginnig of the script");
         return
     }
-    return downloadAnimLoop(uuid,animation_list,filename);
+    // MODIFICATION: Using characterAnimations instead of animation_list so that it does the process that it usually does but with the sliced-shuffled-array per character
+    return downloadAnimLoop(uuid, characterAnimations, filename);
 }
 
 // all the files selected in browser

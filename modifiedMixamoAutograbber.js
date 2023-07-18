@@ -469,7 +469,7 @@ const downloadingTab = window.open('', '_blank');
 
 // start uploading
 const startUpload = (idx) => {
-    console.log('>>> Start uploading',pad(idx));
+    console.log('>>> Start uploading', pad(idx));
     const file = files[idx-skip]
     const filename = file.name.slice(0,-10) // remove '_yup_a.fbx' at the end
 
@@ -480,20 +480,20 @@ const startUpload = (idx) => {
     .then(uuid => {
         // MODIFICATION: Get unique animations for this character
         const characterAnimations = getAnimationsForCharacter(idx - skip, files.length);
-        return startDownload(uuid,filename, characterAnimations);
+        return startDownload(uuid, filename, characterAnimations);
     })
     .catch(() => Promise.reject("Unable to upload character number" + pad(idx)))
 }
 
 // start downloading
-const startDownload = (uuid,filename) => {
+const startDownload = (uuid, filename, characterAnimations) => {
     console.log('>>> Start downloading', filename);
     if (!uuid) {
         console.error("No valid character ID");
         return
     }
     if (!characterAnimations.length) {
-        console.error("Please add valid animation IDs at the beginnig of the script");
+        console.error("Please add valid animation IDs at the beginning of the script");
         return
     }
     // MODIFICATION: Using characterAnimations instead of animation_list so that it does the process that it usually does but with the sliced-shuffled-array per character

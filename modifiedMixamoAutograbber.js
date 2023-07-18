@@ -182,7 +182,7 @@ const animation_list = ["Breakdance Uprock",
 
 // MODIFICATION: NEW FUNCTIONS =======================================================================================================================
 
-const shuffledAnimations = shuffleArray(animation_list);
+const shuffledAnimations = shuffleArray(total_unique_animation_list);
 
 function shuffleArray(array) {
     // I looked up and used the Fisher-Yaktes Shuffle. Credit to Fisher-Yaktes!!!

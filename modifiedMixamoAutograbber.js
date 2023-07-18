@@ -1,4 +1,4 @@
-const = total_unique_animation_list = ["Jumping Up", "Jazz Dancing", "Hanging", "Scary Clown Idle", "Jump Up", "Left Cover Sneak W/ Rifle", "Samba Dancing", "Sprint Forward Right", "Standing Torch To Crouch Torch", "Arms Hip Hop Dance",
+const total_unique_animation_list = ["Jumping Up", "Jazz Dancing", "Hanging", "Scary Clown Idle", "Jump Up", "Left Cover Sneak W/ Rifle", "Samba Dancing", "Sprint Forward Right", "Standing Torch To Crouch Torch", "Arms Hip Hop Dance",
 "Victory", "Standing Torch Turn Right 90", "Prone Left Turn", "Golf Drive", "Standing Dodge Forward", "Cartwheel", "Goalkeeper Idle", "Jump Over", "Run Forward Right", "Bboy Pose To Idle",
 "Running Crawl", "Standing Cover Turn", "Crouch Strafe Run Left", "Catwalk Idle 02", "Gunplay", "Stop Walking With Rifle", "Sitting Disbelief", "Meia Lua De Compasso Back", "Opening Door Inwards", "Entry",
 "Belly Dance", "Fall A Land To Standing Idle 01", "Golf Bad Shot", "Shaking It Off", "Standing Turn Right 90", "Focus", "Standing Torch Burn Webs", "Quick Formal Bow", "Walk Backward", "Catwalk Idle Twist L",

@@ -472,10 +472,8 @@ const startUpload = (idx) => {
     console.log('>>> Start uploading', pad(idx));
     const file = files[idx-skip]
     const filename = file.name.slice(0,-10) // remove '_yup_a.fbx' at the end
-    // MODIFICATION: Adjust for new folder structure
-    const folder = filename + "_FBX" // append "_FBX" to the filename to match folder name
 
-    return uploadCharacter(file,`${folder}/${filename}.fbx`)
+    return uploadCharacter(file,`${filename}.fbx`)
     .then(json => {
         return monitorAnimation(json.uuid)
     })

@@ -473,7 +473,7 @@ const startUpload = (idx) => {
     const file = files[idx-skip]
     const filename = file.name.slice(0,-10) // remove '_yup_a.fbx' at the end
     // MODIFICATION: Adjust for new folder structure
-    const folder = filename + "_FBX" // replace .fbx
+    const folder = filename + "_FBX" // append "_FBX" to the filename to match folder name
 
     return uploadCharacter(file,`${folder}/${filename}.fbx`)
     .then(json => {

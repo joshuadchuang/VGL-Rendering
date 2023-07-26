@@ -1,3 +1,7 @@
+// Insert this somewhere in the header of the webpage using the Element Inspector HTML
+// <input type="file" id="uploader" multiple></input>
+
+
 // MODIFICATION: New total unique animation list of 1458 items from Mixamo
 const total_unique_animation_list = ["Jumping Up", "Jazz Dancing", "Hanging", "Scary Clown Idle", "Jump Up", "Left Cover Sneak W/ Rifle", "Samba Dancing", "Sprint Forward Right", "Standing Torch To Crouch Torch", "Arms Hip Hop Dance",
 "Victory", "Standing Torch Turn Right 90", "Prone Left Turn", "Golf Drive", "Standing Dodge Forward", "Cartwheel", "Goalkeeper Idle", "Jump Over", "Run Forward Right", "Bboy Pose To Idle",
@@ -147,45 +151,22 @@ const total_unique_animation_list = ["Jumping Up", "Jazz Dancing", "Hanging", "S
 "Falling Down", "Stepping Left", "Catwalk Walk Start Turn 180 Right", "Clean And Jerk", "Sprinting Forward Roll", "Standing 2H Cast Spell 01", "Rifle Crouch Backward Walk", "Martelo 3"
 ];
 
-const animation_list = ["Breakdance Uprock",
-                        "Brief Stumble While Jogging",
-                        "Capoeira Side Kick",
-                        "Ecstatic Jumping With Both Legs And Arms",
-                        "Eight Punch Combo",
-                        "Female Jazz Dancing 'Around The World'",
-                        "Female Jazz Square Dancing",
-                        "Goalkeeper Catching Ball Low Height",
-                        "Grabbing Rifle From Shoulder And Putting Away",
-                        "Hard Floor Stomp",
-                        "Jumping In Place",
-                        "Left To Right Attack With Torch",
-                        "Long Head Jab",
-                        "Male 180 Turn With Briefcase",
-                        "Male Front Snap Kick With The Lead Foot",
-                        "Mma Low Kick",
-                        "Overhead Squat Workout",
-                        "Running Left",
-                        "Salsa Dancing Side To Side",
-                        "Soccer Header In Place",
-                        "Soccer Pass From Idle Pose",
-                        "Standard Jumping Jacks",
-                        "Standard Running",
-                        "Standard Walk",
-                        "Standing Right Turn",
-                        // "Goalkeeper Placing Ball To Short Pass",
-                        // "Female Jazz Dancing 'Around The World'- Loop",
-                        // "Standing To Sitting Transition",
-                        // "Cheering While Sitting With High Enthusiasm"
-                    ];
+const select_animation_list = ["Lying Down", "Laying Breathless", "Laying Severe Cough", "Laying Mild cough", "Laying Vomitting", "Laying Sleeping", "Laying Moaning", "Laying Seizure", "Tonic Seizure", "Laying Idle",
+"Laying Idle", "Dying", "Laying Hand Gesture", "Stroke Shaking Head", "Prone Death", "Crouch Death", "Injured Run", "Injured Walk Backwards", "Injured Walk", "Injured Run Right Turn",
+"Injured Walk right Turn", "Injured Run Left Turn", "Injured Turn Left", "Injured Standing Jump", "Injured Run Jump", "Injured Walk Left Turn", "Injured Backwards Turn Left", "Injured Idle", "Injured Run Backwards Left", "Injured Stumble Idle",
+"Injured Run Backwards", "Injured Turn Right", "Injured Hurting Idle", "Injured Wave Idle", "Injured Backwards Turn Right", "Injured Run Backwards Right", "Injured Jog", "Injured Walking", "Injured Walk", "Being Carried",
+];
 
 //=================================================================================================
 
 // MODIFICATION: NEW FUNCTIONS =======================================================================================================================
 
-const shuffledAnimations = shuffleArray(total_unique_animation_list);
+// replace parameter with either total_unique_animation_list or select_animation_list depending on if you want to parse
+// the whole list or just a select few
+const shuffledAnimations = shuffleArray(select_animation_list);
 
 function shuffleArray(array) {
-    // I looked up and used the Fisher-Yaktes Shuffle. Credit to Fisher-Yaktes!!!
+    // Fisher-Yaktes Shuffle
     // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
     let currentIndex = array.length,  randomIndex;
 

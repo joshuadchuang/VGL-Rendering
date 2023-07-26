@@ -1,0 +1,4 @@
+"Lying Down", "Laying Breathless", "Laying Severe Cough", "Laying Mild cough", "Laying Vomitting", "Laying Sleeping", "Laying Moaning", "Laying Seizure", "Tonic Seizure", "Laying Idle",
+"Laying Idle", "Dying", "Laying Hand Gesture", "Stroke Shaking Head", "Prone Death", "Crouch Death", "Injured Run", "Injured Walk Backwards", "Injured Walk", "Injured Run Right Turn",
+"Injured Walk right Turn", "Injured Run Left Turn", "Injured Turn Left", "Injured Standing Jump", "Injured Run Jump", "Injured Walk Left Turn", "Injured Backwards Turn Left", "Injured Idle", "Injured Run Backwards Left", "Injured Stumble Idle",
+"Injured Run Backwards", "Injured Turn Right", "Injured Hurting Idle", "Injured Wave Idle", "Injured Backwards Turn Right", "Injured Run Backwards Right", "Injured Jog", "Injured Walking", "Injured Walk", "Being Carried",

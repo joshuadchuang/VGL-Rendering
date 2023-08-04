@@ -167,7 +167,6 @@ const shuffledAnimations = shuffleArray(select_animation_list);
 
 function shuffleArray(array) {
     // Fisher-Yaktes Shuffle
-    // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
     let currentIndex = array.length,  randomIndex;
 
     // While there remain elements to shuffle.
@@ -181,7 +180,7 @@ function shuffleArray(array) {
     [array[currentIndex], array[randomIndex]] = [
       array[randomIndex], array[currentIndex]];
   }
-
+  
   return array;
 }
 

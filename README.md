@@ -1,9 +1,9 @@
 # VGL-Rendering
 
 ## Python Environment Name: WebScrapping
-Includes Selenium and B24
+Includes Selenium and BS4
 
-## Animation Name Web Scraper [Python, Selenium, B24]
+## Animation Name Web Scraper [Python, Selenium, BS4]
 **Run** "mixamoAnimNamesScraper.py" --> "animationNames.txt" <br />
 **Run** "namesFormatter.py" **with** "animationNames.txt" --> animationNames_formatted.txt
 
